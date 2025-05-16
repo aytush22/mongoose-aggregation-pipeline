@@ -1,1 +1,17 @@
-[]
+[
+    {
+        "location": "Kathmandu",
+        "price": 170000,
+        "floorrooms": 9
+    },
+    {
+        "location": "Kathmandu",
+        "price": 120000,
+        "floorrooms": 5
+    },
+    {
+        "location": "Kathmandu",
+        "price": 130000,
+        "floorrooms": 5
+    }
+]

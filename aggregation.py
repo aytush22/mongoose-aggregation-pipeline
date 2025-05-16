@@ -28,7 +28,7 @@ priceInfo = [
 result =  collection.insert_many(priceInfo)
 #show ids if successfully inserted in mongodb database
 #print("Inserted IDs:", result.inserted_ids) 
-aggregatedresult=database.pricesInfo.aggregate([
+aggregatedresult=list(database.pricesInfo.aggregate([
     {"$match" : {"location":"Kathmandu"}},
     {"$group" : {
                 "_id":"$_id", #group by _id i.e each document its own ground as id unique
@@ -45,10 +45,7 @@ aggregatedresult=database.pricesInfo.aggregate([
                 }
     },
     {"$sort" : {"floorrooms" : -1 , "price": 1}},
-])
-
-for doc in aggregatedresult:
-    print(doc)
+]))
 
 import json
 mydict = []
@@ -61,7 +58,8 @@ with open("output.json","w") as f:
             })
     f.write(json.dumps(mydict,indent=4))
 
-
+for finalagg in aggregatedresult:
+    print(finalagg)
 
 
 
